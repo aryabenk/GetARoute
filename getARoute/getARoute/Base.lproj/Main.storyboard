@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Delegate-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="getARoute" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mm-ex-lR5" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="84" width="414" height="688"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="28Y-aV-7Wc"/>
+                                </connections>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KZS-w2-1gX">
+                                <rect key="frame" x="107" y="44" width="200" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="LhT-h1-Krq"/>
+                                    <constraint firstAttribute="width" constant="200" id="wK2-Kn-xZp"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Standart"/>
+                                    <segment title="Satelite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                                <connections>
+                                    <action selector="styleMap:" destination="BYZ-38-t0r" eventType="valueChanged" id="MHj-nR-cOu"/>
+                                </connections>
+                            </segmentedControl>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oVz-91-haQ">
+                                <rect key="frame" x="20" y="827" width="250" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="DuJ-UL-4fO"/>
+                                    <constraint firstAttribute="height" constant="35" id="bVj-VV-ynv"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="chooseDestinationPoint:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="brz-TI-iJv"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tkj-c6-Unl">
+                                <rect key="frame" x="294" y="802" width="100" height="40"/>
+                                <color key="backgroundColor" red="0.31583375976002315" green="0.59355318731594586" blue="0.49295419791517492" alpha="0.75965558978873238" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="4QD-GB-1KC"/>
+                                    <constraint firstAttribute="height" constant="40" id="Qis-6C-6dJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchRoute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jGS-md-XzG"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xqj-Kn-NGp">
+                                <rect key="frame" x="20" y="782" width="250" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="2SS-bb-7NK"/>
+                                    <constraint firstAttribute="width" constant="250" id="5cq-Q2-5rY"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="chooseStartPoint:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="pDk-kl-8j3"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rr7-cL-J8j">
+                                <rect key="frame" x="240" y="787" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="7yH-AP-5Kn"/>
+                                    <constraint firstAttribute="width" constant="25" id="Uc3-GK-tPQ"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="geolocationSearch"/>
+                                <connections>
+                                    <action selector="startFromCurrentLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d4c-VV-lpN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3a-p8-dsc">
+                                <rect key="frame" x="240" y="832" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="CtX-2A-rby"/>
+                                    <constraint firstAttribute="width" constant="25" id="ZKz-BQ-eku"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="geolocationSearch"/>
+                                <connections>
+                                    <action selector="destinationIsCurrentLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YNB-Bd-w43"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xqj-Kn-NGp" firstAttribute="top" secondItem="3mm-ex-lR5" secondAttribute="bottom" constant="10" id="2uz-yD-6uZ"/>
+                            <constraint firstItem="3mm-ex-lR5" firstAttribute="top" secondItem="KZS-w2-1gX" secondAttribute="bottom" constant="10" id="5iR-ix-sQJ"/>
+                            <constraint firstItem="Rr7-cL-J8j" firstAttribute="top" secondItem="3mm-ex-lR5" secondAttribute="bottom" constant="15" id="85k-03-PUj"/>
+                            <constraint firstItem="Rr7-cL-J8j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="240" id="A2K-9M-QYw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Tkj-c6-Unl" secondAttribute="bottom" constant="20" id="CYW-7i-iAq"/>
+                            <constraint firstItem="oVz-91-haQ" firstAttribute="top" secondItem="xqj-Kn-NGp" secondAttribute="bottom" constant="10" id="Ffb-Lw-DyH"/>
+                            <constraint firstItem="P3a-p8-dsc" firstAttribute="top" secondItem="xqj-Kn-NGp" secondAttribute="bottom" constant="15" id="S90-FU-Q6q"/>
+                            <constraint firstItem="xqj-Kn-NGp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="T38-sE-9me"/>
+                            <constraint firstItem="P3a-p8-dsc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="240" id="TPw-rE-Oqa"/>
+                            <constraint firstItem="oVz-91-haQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="TtD-pd-vhQ"/>
+                            <constraint firstItem="3mm-ex-lR5" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="UWh-0q-4aC"/>
+                            <constraint firstItem="xqj-Kn-NGp" firstAttribute="top" secondItem="3mm-ex-lR5" secondAttribute="bottom" constant="10" id="Zsr-2U-pHv"/>
+                            <constraint firstItem="KZS-w2-1gX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cnO-1f-hjV"/>
+                            <constraint firstItem="oVz-91-haQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="dZQ-AC-JBY"/>
+                            <constraint firstItem="KZS-w2-1gX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fCV-CR-X1t"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Tkj-c6-Unl" secondAttribute="trailing" constant="20" id="fkM-nf-Pgc"/>
+                            <constraint firstItem="Tkj-c6-Unl" firstAttribute="top" secondItem="3mm-ex-lR5" secondAttribute="bottom" constant="30" id="lAj-iC-zgm"/>
+                            <constraint firstItem="oVz-91-haQ" firstAttribute="top" secondItem="xqj-Kn-NGp" secondAttribute="bottom" constant="10" id="qeN-8k-SZB"/>
+                            <constraint firstItem="3mm-ex-lR5" firstAttribute="top" secondItem="KZS-w2-1gX" secondAttribute="bottom" constant="10" id="v8t-lY-hAG"/>
+                            <constraint firstItem="3mm-ex-lR5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xBF-sM-Aal"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="destinationGeolocation" destination="P3a-p8-dsc" id="Yjp-OK-gdG"/>
+                        <outlet property="destinationPoint" destination="oVz-91-haQ" id="Qmm-XO-5o7"/>
+                        <outlet property="mapView" destination="3mm-ex-lR5" id="XsQ-dV-gd3"/>
+                        <outlet property="searchButton" destination="Tkj-c6-Unl" id="HhP-Gy-8dV"/>
+                        <outlet property="startGeolocation" destination="Rr7-cL-J8j" id="b7l-Qr-b6N"/>
+                        <outlet property="startPoint" destination="xqj-Kn-NGp" id="f08-iP-rGk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="geolocationSearch" width="720" height="720"/>
+    </resources>
+</document>
